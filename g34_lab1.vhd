@@ -9,7 +9,6 @@ entity g34_7_segment_decoder is
 end g34_7_segment_decoder;
 
 
-
 architecture a0 of g34_7_segment_decoder is
 	signal s7_segments : std_logic_vector (6 downto 0);
 begin
@@ -36,3 +35,27 @@ begin
 	end process my_case;
 	segments <= s7_segments;
 end a0;
+
+entity g34_adder is
+	port (	A, B		: in std_logic_vector (4 downto 0);
+		decoded_A	: out std_logic_vector (13 downto 0);
+		decoded_B	: out std_logic_vector (13 downto 0);
+		decoded_AplusB	: out std_logic_vector (13 downto 0));
+end g34_adder;
+
+
+architecture a1 of g34_adder is
+	signal A_left_encoded		: std_logic_vector (3 downto 0);
+	signal A_right_encoded		: std_logic_vector (3 downto 0);
+	signal B_left_encoded		: std_logic_vector (3 downto 0);
+	signal B_right_encoded		: std_logic_vector (3 downto 0);
+	signal AplusB_left_encoded	: std_logic_vector (3 downto 0);
+	signal AplusB_right_encoded	: std_logic_vector (3 downto 0);
+	7sd_A_left		: entity g34_lab1.g34_7_segment_decoder port map (
+	7sd_A_right		: entity g34_lab1.g34_7_segment_decoder port map (
+	7sd_B_left		: entity g34_lab1.g34_7_segment_decoder port map (
+	7sd_B_right		: entity g34_lab1.g34_7_segment_decoder port map (
+	7sd_AplusB_left		: entity g34_lab1.g34_7_segment_decoder port map (
+	7sd_AplusB_right	: entity g34_lab1.g34_7_segment_decoder port map (
+
+end a1;
