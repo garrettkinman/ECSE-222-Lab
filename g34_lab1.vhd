@@ -48,14 +48,16 @@ end g34_adder;
 architecture a1 of g34_adder is
 	-- signal A_left_encoded		: std_logic_vector (3 downto 0);
 	-- signal A_right_encoded		: std_logic_vector (3 downto 0);
-	signal A_encoded				: std_logic_vector (7 downto 0);
 	-- signal B_left_encoded		: std_logic_vector (3 downto 0);
 	-- signal B_right_encoded		: std_logic_vector (3 downto 0);
-	signal B_encoded				: std_logic_vector (7 downto 0);
 	-- signal AplusB_left_encoded	: std_logic_vector (3 downto 0);
 	-- signal AplusB_right_encoded	: std_logic_vector (3 downto 0);
-	signal AplusB_encoded				: std_logic_vector (7 downto 0);
-	signal decoded	: std_logic_vector (41 downto 0);
+	
+	signal A_encoded			: std_logic_vector (7 downto 0);
+	signal B_encoded			: std_logic_vector (7 downto 0);
+	signal AplusB_encoded	: std_logic_vector (7 downto 0);
+	signal decoded				: std_logic_vector (41 downto 0);
+	
 	7sd_A_left		: entity g34_lab1.g34_7_segment_decoder port map (A_encoded (7 downto 4), decoded (41 downto 35));
 	7sd_A_right		: entity g34_lab1.g34_7_segment_decoder port map (A_encoded (4 downto 0), decoded (34 downto 28));
 	7sd_B_left		: entity g34_lab1.g34_7_segment_decoder port map (B_encoded (7 downto 4), decoded (27 downto 21));
