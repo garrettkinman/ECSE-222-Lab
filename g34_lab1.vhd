@@ -38,7 +38,7 @@ begin
 									port map (B_encoded (7 downto 4), decoded (27 downto 21));
 	sd_B_right			: g34_7_segment_decoder
 									port map (B_encoded (3 downto 0), decoded (20 downto 14));
-	sd_AplusB_left	: g34_7_segment_decoder
+	sd_AplusB_left		: g34_7_segment_decoder
 									port map (AplusB_encoded (7 downto 4), decoded (13 downto 7));
 	sd_AplusB_right	: g34_7_segment_decoder
 									port map (AplusB_encoded (3 downto 0), decoded (6 downto 0));
