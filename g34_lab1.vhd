@@ -57,12 +57,12 @@ architecture a1 of g34_adder is
 	signal B_encoded			: std_logic_vector (7 downto 0);
 	signal AplusB_encoded	: std_logic_vector (7 downto 0);
 	signal decoded				: std_logic_vector (41 downto 0);
-	
-	7sd_A_left			: entity g34_lab1.g34_7_segment_decoder port map (A_encoded (7 downto 4), decoded (41 downto 35));
-	7sd_A_right			: entity g34_lab1.g34_7_segment_decoder port map (A_encoded (4 downto 0), decoded (34 downto 28));
-	7sd_B_left			: entity g34_lab1.g34_7_segment_decoder port map (B_encoded (7 downto 4), decoded (27 downto 21));
-	7sd_B_right			: entity g34_lab1.g34_7_segment_decoder port map (B_encoded (3 downto 0), decoded (20 downto 14));
-	7sd_AplusB_left	: entity g34_lab1.g34_7_segment_decoder port map (AplusB_encoded (7 downto 4), decoded (13 downto 7));
-	7sd_AplusB_right	: entity g34_lab1.g34_7_segment_decoder port map (AplusB_encoded (3 downto 0), decoded (6 downto 0));
+begin	
+	7sd_A_left			: component g34_lab1.g34_7_segment_decoder port map (A_encoded (7 downto 4), decoded (41 downto 35));
+	7sd_A_right			: component g34_lab1.g34_7_segment_decoder port map (A_encoded (4 downto 0), decoded (34 downto 28));
+	7sd_B_left			: component g34_lab1.g34_7_segment_decoder port map (B_encoded (7 downto 4), decoded (27 downto 21));
+	7sd_B_right			: component g34_lab1.g34_7_segment_decoder port map (B_encoded (3 downto 0), decoded (20 downto 14));
+	7sd_AplusB_left	: component g34_lab1.g34_7_segment_decoder port map (AplusB_encoded (7 downto 4), decoded (13 downto 7));
+	7sd_AplusB_right	: component g34_lab1.g34_7_segment_decoder port map (AplusB_encoded (3 downto 0), decoded (6 downto 0));
 
 end a1;
