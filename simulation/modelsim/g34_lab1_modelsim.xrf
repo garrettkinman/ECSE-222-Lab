@@ -1,10 +1,10 @@
 vendor_name = ModelSim
-source_file = 1, C:/Users/matte/Documents/McGill/ECSE 222/Labs/lab-1/ECSE-222-Lab/g34_lab1.vhd
-source_file = 1, e:/program files/interlfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
-source_file = 1, e:/program files/interlfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
-source_file = 1, e:/program files/interlfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_b.vhd
-source_file = 1, e:/program files/interlfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_p.vhd
-source_file = 1, C:/Users/matte/Documents/McGill/ECSE 222/Labs/lab-1/ECSE-222-Lab/db/g34_lab1.cbx.xml
+source_file = 1, C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_p.vhd
+source_file = 1, C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/db/g34_lab1.cbx.xml
 design_name = g34_7_segment_decoder
 instance = comp, \segments[0]~output\, segments[0]~output, g34_7_segment_decoder, 1
 instance = comp, \segments[1]~output\, segments[1]~output, g34_7_segment_decoder, 1
