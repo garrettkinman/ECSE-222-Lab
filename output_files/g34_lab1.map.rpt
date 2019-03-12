@@ -1,5 +1,5 @@
 Analysis & Synthesis report for g34_lab1
-Mon Mar 11 22:50:36 2019
+Mon Mar 11 23:59:33 2019
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Mon Mar 11 22:50:36 2019           ;
+; Analysis & Synthesis Status ; Failed - Mon Mar 11 23:59:33 2019           ;
 ; Quartus Prime Version       ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name               ; g34_lab1                                    ;
 ; Top-level Entity Name       ; g34_7_segment_decoder                       ;
@@ -160,21 +160,21 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Mon Mar 11 22:50:27 2019
+    Info: Processing started: Mon Mar 11 23:59:24 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off g34_lab1 -c g34_lab1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Error (10500): VHDL syntax error at g34_lab1.vhd(61) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 61
-Error (10500): VHDL syntax error at g34_lab1.vhd(62) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 62
-Error (10500): VHDL syntax error at g34_lab1.vhd(63) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 63
-Error (10500): VHDL syntax error at g34_lab1.vhd(64) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 64
-Error (10500): VHDL syntax error at g34_lab1.vhd(65) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 65
-Error (10500): VHDL syntax error at g34_lab1.vhd(66) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 66
+Error (10500): VHDL syntax error at g34_lab1.vhd(72) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 72
+Error (10500): VHDL syntax error at g34_lab1.vhd(74) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 74
+Error (10500): VHDL syntax error at g34_lab1.vhd(76) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 76
+Error (10500): VHDL syntax error at g34_lab1.vhd(78) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 78
+Error (10500): VHDL syntax error at g34_lab1.vhd(80) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 80
+Error (10500): VHDL syntax error at g34_lab1.vhd(82) near text "7";  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd Line: 82
 Info (12021): Found 0 design units, including 0 entities, in source file g34_lab1.vhd
 Error: Quartus Prime Analysis & Synthesis was unsuccessful. 6 errors, 1 warning
     Error: Peak virtual memory: 4858 megabytes
-    Error: Processing ended: Mon Mar 11 22:50:36 2019
+    Error: Processing ended: Mon Mar 11 23:59:33 2019
     Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:17
+    Error: Total CPU time (on all processors): 00:00:18
 
 
