@@ -39,10 +39,10 @@ end a0;
 
 
 entity g34_adder is
-	port (	A, B		: in std_logic_vector (4 downto 0);
-		decoded_A	: out std_logic_vector (13 downto 0);
-		decoded_B	: out std_logic_vector (13 downto 0);
-		decoded_AplusB	: out std_logic_vector (13 downto 0));
+	port (	A, B				: in std_logic_vector (4 downto 0);
+				decoded_A		: out std_logic_vector (13 downto 0);
+				decoded_B		: out std_logic_vector (13 downto 0);
+				decoded_AplusB	: out std_logic_vector (13 downto 0));
 end g34_adder;
 
 
@@ -69,17 +69,17 @@ begin
 	B_encoded <= "000" & B (4 downto 0);	-- copy over B with leading zeros
 	AplusB_encoded <= std_logic_vector (unsigned (A_encoded) + unsigned (B_encoded));	-- sum A_encoded and B_encoded
 
-	7sd_A_left			: component g34_7_segment_decoder
+	sd_A_left			: g34_7_segment_decoder
 									port map (A_encoded (7 downto 4), decoded (41 downto 35));
-	7sd_A_right			: component g34_7_segment_decoder
+	sd_A_right			: g34_7_segment_decoder
 									port map (A_encoded (4 downto 0), decoded (34 downto 28));
-	7sd_B_left			: component g34_7_segment_decoder
+	sd_B_left			: g34_7_segment_decoder
 									port map (B_encoded (7 downto 4), decoded (27 downto 21));
-	7sd_B_right			: component g34_7_segment_decoder
+	sd_B_right			: g34_7_segment_decoder
 									port map (B_encoded (3 downto 0), decoded (20 downto 14));
-	7sd_AplusB_left	: component g34_7_segment_decoder
+	sd_AplusB_left	: g34_7_segment_decoder
 									port map (AplusB_encoded (7 downto 4), decoded (13 downto 7));
-	7sd_AplusB_right	: component g34_7_segment_decoder
+	sd_AplusB_right	: g34_7_segment_decoder
 									port map (AplusB_encoded (3 downto 0), decoded (6 downto 0));
 
 	decoded_A <= decoded (41 downto 28);	-- copy over from decoded
