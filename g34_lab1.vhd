@@ -82,5 +82,8 @@ begin
 	7sd_AplusB_right	: component g34_7_segment_decoder
 									port map (AplusB_encoded (3 downto 0), decoded (6 downto 0));
 
+	decoded_A <= decoded (41 downto 28);
+	decoded_B <= decoded (27 downto 14);
+	decoded_AplusB <= decoded (13 downto 0);
 	
 end a1;
