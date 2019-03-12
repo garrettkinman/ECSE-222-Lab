@@ -59,10 +59,10 @@ architecture a1 of g34_adder is
 	signal AplusB_encoded	: std_logic_vector (7 downto 0);
 	signal decoded				: std_logic_vector (41 downto 0);
 	
-component g34_7_segment_decoder is
-	port (	code 		: in std_logic_vector (3 downto 0);
-				segments	: out std_logic_vector (6 downto 0));
-end component;
+	component g34_7_segment_decoder is
+		port (	code 		: in std_logic_vector (3 downto 0);
+					segments	: out std_logic_vector (6 downto 0));
+	end component;
 				
 begin	
 	A_encoded <= "000" & A (4 downto 0);	-- copy over A with leading zeros
@@ -82,8 +82,8 @@ begin
 	7sd_AplusB_right	: component g34_7_segment_decoder
 									port map (AplusB_encoded (3 downto 0), decoded (6 downto 0));
 
-	decoded_A <= decoded (41 downto 28);
-	decoded_B <= decoded (27 downto 14);
-	decoded_AplusB <= decoded (13 downto 0);
+	decoded_A <= decoded (41 downto 28);	-- copy over from decoded
+	decoded_B <= decoded (27 downto 14);	-- copy over from decoded
+	decoded_AplusB <= decoded (13 downto 0);	-- copy over from decoded
 	
 end a1;
