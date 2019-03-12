@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition"
 
--- DATE "03/12/2019 01:45:11"
+-- DATE "03/12/2019 02:05:48"
 
 -- 
 -- Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -37,9 +37,9 @@ ENTITY 	g34_adder IS
     PORT (
 	A : IN std_logic_vector(4 DOWNTO 0);
 	B : IN std_logic_vector(4 DOWNTO 0);
-	decoded_A : BUFFER std_logic_vector(13 DOWNTO 0);
-	decoded_B : BUFFER std_logic_vector(13 DOWNTO 0);
-	decoded_AplusB : BUFFER std_logic_vector(13 DOWNTO 0)
+	decoded_A : OUT std_logic_vector(13 DOWNTO 0);
+	decoded_B : OUT std_logic_vector(13 DOWNTO 0);
+	decoded_AplusB : OUT std_logic_vector(13 DOWNTO 0)
 	);
 END g34_adder;
 

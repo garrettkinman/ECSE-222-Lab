@@ -84,6 +84,7 @@ begin
 			when "1101" => s7_segments <= "0100001"; -- 'D'
 			when "1110" => s7_segments <= "0000110"; -- 'E'
 			when "1111" => s7_segments <= "0001110"; -- 'F'
+			when others => s7_segments <= "1111111"; -- for any other cases
 		end case;
 	end process my_case;
 	segments <= s7_segments;
