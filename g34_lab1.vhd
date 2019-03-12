@@ -47,12 +47,6 @@ end g34_adder;
 
 
 architecture a1 of g34_adder is
-	-- signal A_left_encoded		: std_logic_vector (3 downto 0);
-	-- signal A_right_encoded		: std_logic_vector (3 downto 0);
-	-- signal B_left_encoded		: std_logic_vector (3 downto 0);
-	-- signal B_right_encoded		: std_logic_vector (3 downto 0);
-	-- signal AplusB_left_encoded	: std_logic_vector (3 downto 0);
-	-- signal AplusB_right_encoded	: std_logic_vector (3 downto 0);
 	
 	signal A_encoded			: std_logic_vector (7 downto 0);
 	signal B_encoded			: std_logic_vector (7 downto 0);
