@@ -1,5 +1,5 @@
 Flow report for g34_lab1
-Tue Mar 12 00:40:40 2019
+Tue Mar 12 00:53:24 2019
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,10 +40,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Flow Failed - Tue Mar 12 00:40:40 2019      ;
+; Flow Status                 ; Flow Failed - Tue Mar 12 00:53:24 2019      ;
 ; Quartus Prime Version       ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name               ; g34_lab1                                    ;
-; Top-level Entity Name       ; g34_lab1                                    ;
+; Top-level Entity Name       ; g34_lab1_7_segment_decoder                  ;
 ; Family                      ; Cyclone V                                   ;
 ; Device                      ; 5CSEMA5F31C6                                ;
 ; Timing Models               ; Final                                       ;
@@ -62,30 +62,31 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/12/2019 00:40:32 ;
+; Start date & time ; 03/12/2019 00:53:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; g34_lab1            ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                            ;
-+-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 123719792539403.155236563106176        ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
-+-------------------------------------+----------------------------------------+---------------+-------------+----------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                           ;
++-------------------------------------+----------------------------------------+---------------+----------------------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name                ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+----------------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 123719792539403.155236639608976        ; --            ; --                         ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --                         ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --                         ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --                         ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --                         ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --                         ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; g34_lab1_7_segment_decoder ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; g34_lab1_7_segment_decoder ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; g34_lab1_7_segment_decoder ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --                         ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --                         ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --                         ; --             ;
+; TOP_LEVEL_ENTITY                    ; g34_lab1_7_segment_decoder             ; g34_lab1      ; --                         ; --             ;
++-------------------------------------+----------------------------------------+---------------+----------------------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -93,8 +94,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4859 MB             ; 00:00:18                           ;
-; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:18                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4862 MB             ; 00:00:17                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:17                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
