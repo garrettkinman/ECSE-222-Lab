@@ -1,5 +1,6 @@
 vendor_name = ModelSim
-source_file = 1, C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_lab1.vhd
+source_file = 1, C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_adder.vhd
+source_file = 1, C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/g34_7_segment_decoder.vhd
 source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_b.vhd

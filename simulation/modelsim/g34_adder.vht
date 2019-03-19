@@ -17,7 +17,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "03/12/2019 02:50:02"
+-- Generated on "03/12/2019 03:09:22"
                                                             
 -- Vhdl Test Bench template for design  :  g34_adder
 -- 
@@ -41,9 +41,9 @@ COMPONENT g34_adder
 	PORT (
 	A : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
 	B : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-	decoded_A : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-	decoded_AplusB : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-	decoded_B : OUT STD_LOGIC_VECTOR(13 DOWNTO 0)
+	decoded_A : BUFFER STD_LOGIC_VECTOR(13 DOWNTO 0);
+	decoded_AplusB : BUFFER STD_LOGIC_VECTOR(13 DOWNTO 0);
+	decoded_B : BUFFER STD_LOGIC_VECTOR(13 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN

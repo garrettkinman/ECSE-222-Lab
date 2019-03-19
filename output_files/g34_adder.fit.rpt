@@ -1,5 +1,5 @@
 Fitter report for g34_adder
-Tue Mar 12 02:43:00 2019
+Mon Mar 18 21:50:12 2019
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -57,7 +57,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Tue Mar 12 02:43:00 2019       ;
+; Fitter Status                   ; Successful - Mon Mar 18 21:50:12 2019       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; g34_adder                                   ;
 ; Top-level Entity Name           ; g34_adder                                   ;
@@ -147,12 +147,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
+;     Processor 2            ;   0.3%      ;
 ;     Processor 3            ;   0.2%      ;
 ;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
@@ -1882,7 +1882,7 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.07 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1890,9 +1890,9 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Info (144001): Generated suppressed messages file C:/Users/Wombat/Documents/GitHub/ECSE-222-Lab/output_files/g34_adder.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 6589 megabytes
-    Info: Processing ended: Tue Mar 12 02:43:01 2019
-    Info: Elapsed time: 00:00:25
+    Info: Peak virtual memory: 6582 megabytes
+    Info: Processing ended: Mon Mar 18 21:50:13 2019
+    Info: Elapsed time: 00:00:28
     Info: Total CPU time (on all processors): 00:00:39
 
 
