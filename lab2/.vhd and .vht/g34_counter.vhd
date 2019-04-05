@@ -19,7 +19,7 @@ process (enable, reset)
 begin
 	if (reset = '0') then	-- if reset is 0, sets output to 0
 		s0 <= "0000";
-	elseif (enable and clk = '1')	then	-- only counts up when enable and clk are 1
+	elseif ((enable = '1') and (rising_edge(clk)))	then	-- only counts up when enable and clk are 1
 		s0 <= s0 + 1;							-- else, output is unchanged
 	end if;
 end process;

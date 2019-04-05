@@ -21,7 +21,7 @@ begin
 process (enable, reset)
 	if (reset = '0') then
 		s1 <= "1111010000100100000" - 1;
-	elseif (enable and clk = '1')
+	elseif ((enable = '1') and (rising_edge(clk)))
 		s1 <= s1 - 1;
 	end if;
 end process;
