@@ -24,5 +24,11 @@ process (enable, reset)
 	elseif (enable and clk = '1')
 		s1 <= s1 - 1;
 	end if;
-
+end process;
+	
+	if (s1 = "0000000000000000000") then
+		en_out <= '1';
+	else
+		en_out <= '0';
+	end if;
 end a1;
