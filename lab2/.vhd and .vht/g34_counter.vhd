@@ -11,18 +11,21 @@ end g34_counter;
 
 
 architecture a0 of g34_counter is
-	signal s0 : std_logic_vector (3 downto 0);
 
 begin
 
-process (enable, reset)
+process (enable, reset, clk)
 begin
 	if (reset = '0') then	-- if reset is 0, sets output to 0
-		s0 <= "0000";
-	elseif ((enable = '1') and (rising_edge(clk)))	then	-- only counts up when enable and clk are 1
-		s0 <= s0 + 1;							-- else, output is unchanged
+		count <= "0000";
+	elseif ((enable = '1') and (rising_edge(clk)))	then	-- only counts up when enabled and on rising edge of clk
+		while (count < 10) loop										-- loops up to 10
+			count <= count + 1;
+		end loop;
+		
+		-- needs to reset somehow to 0 when count hits 10
+		
 	end if;
 end process;
 
-	count <= s0;
 end a0;

@@ -40,8 +40,5 @@ architecture a2 of g34_stopwatch is
 	
 	-- TODO: process
 	-- TODO: initialize components
-	
-begin
-	
 
 end a2;

@@ -18,11 +18,13 @@ architecture a1 of g34_clock_divider is
 	
 begin
 
-process (enable, reset)
+process (enable, reset, clk)
 	if (reset = '0') then
-		s1 <= "1111010000100100000" - 1;
-	elseif ((enable = '1') and (rising_edge(clk)))
-		s1 <= s1 - 1;
+		s1 <= "1111010000100100000" - 1;					-- starts counting down from 499,999
+	elseif ((enable = '1') and (rising_edge(clk)))	-- triggers only when enabled and on rising edge of clk
+		while (s1 >= 0) loop									-- loops down to 0
+			s1 <= s1 - 1;
+		end loop;
 	end if;
 end process;
 	
