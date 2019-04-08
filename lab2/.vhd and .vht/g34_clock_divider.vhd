@@ -11,26 +11,26 @@ end g34_clock_divider;
 
 
 architecture a1 of g34_clock_divider is
-	-- TODO: architecture
-	-- TODO: process
 
-	signal s1 : standard_logic_vector (18 downto 0);
+	signal s1 	: integer range (499999 downto 0) := 499999;
+	signal temp	: std_logic;
 	
 begin
 
 process (enable, reset, clk)
 	if (reset = '0') then
-		s1 <= "1111010000100100000" - 1;					-- starts counting down from 499,999
+		temp <= '1';
+		s1 <= 499999;											-- starts counting down from 499,999
 	elseif ((enable = '1') and (rising_edge(clk)))	-- triggers only when enabled and on rising edge of clk
-		while (s1 >= 0) loop									-- loops down to 0
+		if (s1 = 0) then										-- when reaches 0, temp will be 1 and countdown will be reset
+			temp <= NOT(temp);
+			s1 <= 499999;
+		else
 			s1 <= s1 - 1;
-		end loop;
+		end if;
 	end if;
 end process;
 	
-	if (s1 = "0000000000000000000") then
-		en_out <= '1';
-	else
-		en_out <= '0';
-	end if;
+	en_out <= temp;
+
 end a1;
