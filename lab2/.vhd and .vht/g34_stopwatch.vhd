@@ -77,7 +77,7 @@ begin
 	
 	-- clock divider
 	clock_divider				: g34_clock_divider
-									port map (clock_divider_en, reset, clk, counter0_clk);
+									port map (enable, reset, clk, counter0_clk);
 	
 	-- counters
 	counter0					: g34_counter
@@ -109,7 +109,7 @@ begin
 
 -- control clk for counter 1
 -- when c0 goes to 0, give c1_clk pulse
-c1_clk	: process (counter0_out)
+c1_clk	: process (counter0_out(0))
 begin
 	if (counter0_out = "0000") then
 		counter1_clk <= '1', '0' after 20 ns;
@@ -120,7 +120,7 @@ end process;
 -- when c1 goes to 0, give c2_clk pulse
 c2_clk	: process (counter1_out)
 begin
-	if (counter0_out = "0000") then
+	if (counter1_out = "0000") then
 		counter2_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
@@ -129,7 +129,7 @@ end process;
 -- when c2 goes to 0, give c3_clk pulse
 c3_clk	: process (counter2_out)
 begin
-	if (counter0_out = "0000") then
+	if (counter2_out = "0000") then
 		counter3_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
@@ -157,18 +157,19 @@ end process;
 -- TODO: MAYBE CHANGE THIS
 c3_reset	: process (counter3_out, reset)
 begin
-	if ((counter3_out = "0110") or reset='0') then
+	if ((counter3_out = "0110") or reset='0') then 
 		counter3_reset <= '0';
 	end if;
 end process;
 
 en_stopwatch	: process (start, stop)
 begin
-	if (start = '0') then
-		enable <= '1';
-	elsif (stop = '0') then
-		enable <= '0';
-	end if;
+	enable <= '1';
+	--if (start = '0') then
+	--	enable <= '1';
+	--elsif (stop = '0') then
+	--	enable <= '0';
+	--end if;
 end process;
 
 end a2;
