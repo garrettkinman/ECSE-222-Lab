@@ -64,6 +64,9 @@ architecture a2 of g34_stopwatch is
 	
 	-- enable clock divider
 	signal clock_divider_en	: std_logic;
+
+	-- enable whole stopwatch
+	signal enable		: std_logic;
 	
 	
 begin
@@ -155,6 +158,15 @@ end process;
 c3_reset	: process
 begin
 	counter3_reset <= (reset or (counter3_out'event and counter3_out = "0110"));
+end process;
+
+en_stopwatch	: process (start, stop)
+begin
+	if rising_edge(start) then
+		enable <= start;
+	elsif rising_edge(stop) then
+		enable <= not (start);
+	end if;
 end process;
 
 end a2;
