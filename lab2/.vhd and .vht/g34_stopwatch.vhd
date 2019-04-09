@@ -46,8 +46,10 @@ architecture a2 of g34_stopwatch is
 	signal counter4_out		: std_logic_vector (3 downto 0);
 	signal counter5_out		: std_logic_vector (3 downto 0);
 	
+	-- enable for counter 0 comes from clock divider
 	-- determine enable for counters 1-5
 	-- dependent upon output of previous counter
+	signal counter0_en		: std_logic;
 	signal counter1_en		: std_logic;
 	signal counter2_en		: std_logic;
 	signal counter3_en		: std_logic;
@@ -59,7 +61,10 @@ architecture a2 of g34_stopwatch is
 	signal counter3_reset	: std_logic;
 	
 	-- carry divided clock from clock divider
-	signal divided_clock		: std_logic;
+	signal divided_clk		: std_logic;
+	
+	-- enable clock divider
+	signal clock_divider_en	: std_logic;
 	
 	-- TODO: process
 	-- TODO: initialize components
@@ -72,22 +77,22 @@ begin
 	-- TODO: finish port map for clock divider
 	-- clock divider
 	clock_divider			: g34_clock_divider
-									port map (, , , )
+									port map (clock_divider_en, reset, clk, counter0_en);
 	
 	-- TODO: finish port maps for counters
 	-- counters
 	counter0					: g34_counter
-									port map (, , , counter0_out)
+									port map (counter0_en, reset, divided_clk, counter0_out);
 	counter1					: g34_counter
-									port map (, , , counter1_out)
+									port map (counter1_en, reset, divided_clk, counter1_out);
 	counter2					: g34_counter
-									port map (, , , counter2_out)
+									port map (counter2_en, reset, divided_clk, counter2_out);
 	counter3					: g34_counter
-									port map (, , , counter3_out)
+									port map (counter3_en, counter3_reset, divided_clk, counter3_out);
 	counter4					: g34_counter
-									port map (, , , counter4_out)
+									port map (counter4_en, reset, divided_clk, counter4_out);
 	counter5					: g34_counter
-									port map (, , , counter5_out)
+									port map (counter5_en, reset, divided_clk, counter5_out);
 	
 	-- 7-segment decoders
 	centiseconds_right	: g34_7_segment_decoder
