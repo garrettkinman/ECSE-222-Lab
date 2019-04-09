@@ -109,12 +109,10 @@ begin
 
 -- control clk for counter 1
 -- when c0 goes to 0, give c1_clk pulse
-c1_clk	: process (counter0_out(0))
+c1_clk	: process (counter0_out)
 begin
-	if (counter0_out(0)'event) then
-		if (counter0_out = "0000") then
-			counter1_clk <= '1', '0' after 20 ns;
-		end if;
+	if (counter0_out = "0000") then
+		counter1_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
@@ -122,7 +120,7 @@ end process;
 -- when c1 goes to 0, give c2_clk pulse
 c2_clk	: process (counter1_out)
 begin
-	if (counter0_out(0)'event and counter0_out = "0000") then
+	if (counter0_out = "0000") then
 		counter2_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
@@ -131,7 +129,7 @@ end process;
 -- when c2 goes to 0, give c3_clk pulse
 c3_clk	: process (counter2_out)
 begin
-	if (counter0_out(0)'event and counter0_out = "0000") then
+	if (counter0_out = "0000") then
 		counter3_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
@@ -141,7 +139,7 @@ end process;
 -- (6 because there are 60 seconds in a minute)
 c4_clk	: process (counter3_out)
 begin
-	if (counter3_out(0)'event and counter3_out = "0110") then
+	if (counter3_out = "0110") then
 		counter4_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
@@ -150,16 +148,16 @@ end process;
 -- when c4 goes to 0, give c5_clk pulse
 c5_clk	: process (counter4_out)
 begin
-	if (counter4_out(0)'event and counter4_out = "0000") then
+	if (counter4_out = "0000") then
 		counter5_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
 -- reset counter 3 if reset or hits 6
 -- TODO: MAYBE CHANGE THIS
-c3_reset	: process
+c3_reset	: process (counter3_out, reset)
 begin
-	if ((counter3_out(0)'event and counter3_out = "0110") or reset='0') then 
+	if (counter3_out = "0110" or reset='0') then 
 		counter3_reset <= '0';
 	end if;
 end process;
