@@ -114,7 +114,7 @@ begin
 	if (counter0_out(0)'event) then
 		if (counter0_out = "0000") then
 			counter1_clk <= '1', '0' after 20 ns;
-		end if;	
+		end if;
 	end if;
 end process;
 
