@@ -53,21 +53,18 @@ BEGIN
 	enable => enable,
 	reset => reset
 	);
--- Clock definition.
-entrada_process :process
-	begin
-	clk <= '0';
-	wait for 10 ns;
-	clk <= '1';
-	wait for 10 ns;
-end process;
-
--- Processing.
-stimuli: process
-begin
-	reset <= '0'; -- Initial conditions.
-	wait for 100 ns;
-	reset <= '1'; -- Down to work!
-       wait;
-end process;                                         
+init : PROCESS                                               
+-- variable declarations                                     
+BEGIN                                                        
+        -- code that executes only once                      
+WAIT;                                                       
+END PROCESS init;                                           
+always : PROCESS                                              
+-- optional sensitivity list                                  
+-- (        )                                                 
+-- variable declarations                                      
+BEGIN                                                         
+        -- code executes for every event on sensitivity list  
+WAIT;                                                        
+END PROCESS always;                                          
 END g34_clock_divider_arch;
