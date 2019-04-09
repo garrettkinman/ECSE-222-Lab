@@ -68,6 +68,7 @@ begin
 	reset <= '0'; -- Initial conditions.
 	wait for 100 ns;
 	reset <= '1'; -- Down to work!
+	enable <= '1';
        wait;
 end process;                                         
 END g34_clock_divider_arch;
