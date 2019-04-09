@@ -68,11 +68,17 @@ end process;
 -- Processing.
 stim_proc: process
 begin
-	reset <= '0'; -- Initial conditions.
+	reset <= '0'; 		-- Initial conditions.
 	enable <= '0';
-	wait for 100 ns;
-	reset <= '1'; -- Down to work!
+	wait for 50 ns;
+	
+	reset <= '1';		-- reset becomes 1
+	enable <= '0';
+	wait for 50 ns;
+	
+	reset <= '1'; 		-- enable becomes 1. Down to work!
 	enable <= '1';
-       wait;
+    wait;
+
 end process;                                         
 END g34_clock_divider_arch;
