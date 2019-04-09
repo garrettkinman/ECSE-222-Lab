@@ -154,7 +154,7 @@ end process;
 -- TODO: MAYBE CHANGE THIS
 c3_reset	: process
 begin
-	counter3_reset <= (reset or (counter3_out'event and counter3_out = "0110");
+	counter3_reset <= (reset or (counter3_out'event and counter3_out = "0110"));
 end process;
 
 end a2;
