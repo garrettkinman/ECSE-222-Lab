@@ -165,7 +165,7 @@ begin
 	if rising_edge(start) then
 		enable <= start;
 	elsif rising_edge(stop) then
-		enable <= not (start);
+		enable <= not (stop);
 	end if;
 end process;
 
