@@ -39,24 +39,27 @@ architecture a2 of g34_stopwatch is
 	end component;
 	
 	-- carry outputs from counters to 7-segment decoders
-	signal counter0_out	: std_logic_vector (3 downto 0);
-	signal counter1_out	: std_logic_vector (3 downto 0);
-	signal counter2_out	: std_logic_vector (3 downto 0);
-	signal counter3_out	: std_logic_vector (3 downto 0);
-	signal counter4_out	: std_logic_vector (3 downto 0);
-	signal counter5_out	: std_logic_vector (3 downto 0);
+	signal counter0_out		: std_logic_vector (3 downto 0);
+	signal counter1_out		: std_logic_vector (3 downto 0);
+	signal counter2_out		: std_logic_vector (3 downto 0);
+	signal counter3_out		: std_logic_vector (3 downto 0);
+	signal counter4_out		: std_logic_vector (3 downto 0);
+	signal counter5_out		: std_logic_vector (3 downto 0);
 	
 	-- determine enable for counters 1-5
 	-- dependent upon output of previous counter
-	signal counter1_en	: std_logic;
-	signal counter2_en	: std_logic;
-	signal counter3_en	: std_logic;
-	signal counter4_en	: std_logic;
-	signal counter5_en	: std_logic;
+	signal counter1_en		: std_logic;
+	signal counter2_en		: std_logic;
+	signal counter3_en		: std_logic;
+	signal counter4_en		: std_logic;
+	signal counter5_en		: std_logic;
 	
 	-- determine reset for counter 3
 	-- dependent upon reset and counter3_out
 	signal counter3_reset	: std_logic;
+	
+	-- carry divided clock from clock divider
+	signal divided_clock		: std_logic;
 	
 	-- TODO: process
 	-- TODO: initialize components
