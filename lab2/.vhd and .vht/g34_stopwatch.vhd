@@ -74,12 +74,10 @@ begin
 	-- TODO: counter 3 can only count up to 6
 	--			since 60 seconds in a minute
 	
-	-- TODO: finish port map for clock divider
 	-- clock divider
 	clock_divider			: g34_clock_divider
 									port map (clock_divider_en, reset, clk, counter0_en);
 	
-	-- TODO: finish port maps for counters
 	-- counters
 	counter0					: g34_counter
 									port map (counter0_en, reset, divided_clk, counter0_out);
