@@ -112,7 +112,7 @@ begin
 c1_clk	: process (counter0_out)
 begin
 	if (counter0_out'event and counter0_out = "0000") then
-		c1_clk <= '1', '0' after 20 ns;
+		counter1_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
@@ -121,7 +121,7 @@ end process;
 c2_clk	: process (counter1_out)
 begin
 	if (counter0_out'event and counter0_out = "0000") then
-		c1_clk <= '1', '0' after 20 ns;
+		counter2_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
@@ -130,7 +130,7 @@ end process;
 c3_clk	: process (counter2_out)
 begin
 	if (counter0_out'event and counter0_out = "0000") then
-		c1_clk <= '1', '0' after 20 ns;
+		counter3_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
@@ -140,7 +140,7 @@ end process;
 c4_clk	: process (counter3_out)
 begin
 	if (counter3_out'event and counter3_out = "0110") then
-		c1_clk <= '1', '0' after 20 ns;
+		counter4_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
@@ -149,7 +149,7 @@ end process;
 c5_clk	: process (counter4_out)
 begin
 	if (counter4_out'event and counter4_out = "0000") then
-		c1_clk <= '1', '0' after 20 ns;
+		counter5_clk <= '1', '0' after 20 ns;
 	end if;
 end process;
 
