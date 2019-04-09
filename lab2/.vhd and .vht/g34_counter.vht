@@ -17,7 +17,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "04/08/2019 15:02:57"
+-- Generated on "04/08/2019 17:20:15"
                                                             
 -- Vhdl Test Bench template for design  :  g34_counter
 -- 
@@ -25,10 +25,14 @@
 -- 
 
 LIBRARY ieee;                                               
-USE ieee.std_logic_1164.all;                                
+USE ieee.std_logic_1164.all;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;                               
 
 ENTITY g34_counter_vhd_tst IS
 END g34_counter_vhd_tst;
+
 ARCHITECTURE g34_counter_arch OF g34_counter_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
@@ -38,44 +42,60 @@ SIGNAL enable : STD_LOGIC;
 SIGNAL reset : STD_LOGIC;
 COMPONENT g34_counter
 	PORT (
-	clk : IN STD_LOGIC;
-	count : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	enable : IN STD_LOGIC;
-	reset : IN STD_LOGIC
+		clk : IN STD_LOGIC;
+		count : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		enable : IN STD_LOGIC;
+		reset : IN STD_LOGIC
 	);
 END COMPONENT;
+
 BEGIN
 	i1 : g34_counter
 	PORT MAP (
 -- list connections between master ports and signals
-	clk => clk,
-	count => count,
-	enable => enable,
-	reset => reset
-	);
-init : PROCESS                                               
--- variable declarations                                     
-BEGIN                                                        
--- code that executes only once                      
+		clk => clk,
+		count => count,
+		enable => enable,
+		reset => reset
+	); 
+             
+clock_process : process
+begin
+     clk <= '0';
+     wait for 10 ns;
+     clk <= '1';
+     wait for 10 ns;
+end process;
+
+-- Stimulus process
+stim_proc: process
+begin        
+   -- hold reset state for 100 ns.
+	enable <= '1';
+	reset <= '0';
+	wait for 20 ns;
+   
 	enable <= '1';
 	reset <= '1';
-WAIT;                                                       
-END PROCESS init;                                           
-generate_test : PROCESS
-BEGIN                                                        
--- code executes for every event on sensitivity list  
-	FOR i IN 0 to 15 LOOP
-		clk <= '1';
-		
-		WAIT FOR 100 ns;
-		
-		clk <= '0';
-		
-		WAIT FOR 100 ns;
-		
-	END LOOP;
-	WAIT;           
+	wait for 100 ns;
 	
-END PROCESS generate_test;
-                                          
+	enable <= '0';
+	reset <= '1';
+	wait for 20 ns;
+	
+	enable <= '1';
+	reset <= '1';
+	wait for 60 ns;
+	
+	enable <= '1';
+	reset <= '0';
+	wait for 20 ns;
+	
+	enable <= '1';
+	reset <= '1';
+	wait for 20 ns;
+	
+	wait;
+end process;
+                                   
 END g34_counter_arch;
