@@ -14,10 +14,10 @@ architecture a0 of g34_counter is
 begin
 	process (enable, reset, clk)
 	begin
-		if(rising_edge(clk)) then	-- Only at the positive edge of 'Clk
-			if(reset = '0') then	-- 'temp' resets to 0000 only if 'reset' is 0
-				temp <= "0000";
-			elsif (enable = '1') then	-- 'temp' counts up only if 'enable' is 1
+		if(reset = '0') then	-- 'temp' resets to 0000 only if 'reset' is 0
+			temp <= "0000";
+		elsif(rising_edge(clk)) then	-- Only at the positive edge of 'Clk
+			if (enable = '1') then	-- 'temp' counts up only if 'enable' is 1
 				temp <= temp + "0001";	-- Adds 1 to 'temp'. If 'temp' = 1111, it becomes 0000
 			end if;
 		end if;

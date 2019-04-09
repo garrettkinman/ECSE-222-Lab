@@ -59,9 +59,9 @@ BEGIN
 		reset => reset
 	); 
              
-clock_process : process
+clock_process : process	
 begin
-     clk <= '0';
+     clk <= '0';		-- clk loops every 20 ns
      wait for 10 ns;
      clk <= '1';
      wait for 10 ns;
@@ -70,16 +70,15 @@ end process;
 -- Stimulus process
 stim_proc: process
 begin        
-   -- hold reset state for 100 ns.
-	enable <= '1';
+	enable <= '1';		-- initial values
 	reset <= '0';
 	wait for 20 ns;
    
-	enable <= '1';
+	enable <= '1'; 		
 	reset <= '1';
 	wait for 100 ns;
 	
-	enable <= '0';
+	enable <= '0';		-- enable becomes 0 for 20 ns
 	reset <= '1';
 	wait for 20 ns;
 	
@@ -87,7 +86,7 @@ begin
 	reset <= '1';
 	wait for 60 ns;
 	
-	enable <= '1';
+	enable <= '1';		-- reset becomes 0 for 20 ns
 	reset <= '0';
 	wait for 20 ns;
 	
