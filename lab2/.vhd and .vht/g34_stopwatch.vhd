@@ -109,7 +109,7 @@ begin
 
 -- control clk for counter 1
 -- when c0 goes to 0, give c1_clk pulse
-c1_clk	: process (counter0_out(0))
+c1_clk	: process (counter0_out)
 begin
 	if (counter0_out = "0000") then
 		counter1_clk <= '1', '0' after 20 ns;
@@ -157,7 +157,7 @@ end process;
 -- TODO: MAYBE CHANGE THIS
 c3_reset	: process (counter3_out, reset)
 begin
-	if ((counter3_out = "0110") or reset='0') then 
+	if ((counter3_out = "0110") or reset='0') then
 		counter3_reset <= '0';
 	end if;
 end process;
