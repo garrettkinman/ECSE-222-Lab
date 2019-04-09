@@ -13,7 +13,7 @@ entity g34_stopwatch is
 				hex3	: out	std_logic_vector (6 downto 0);
 				hex4	: out	std_logic_vector (6 downto 0);
 				hex5	: out	std_logic_vector (6 downto 0));
-end g34_stopwatch
+end g34_stopwatch;
 
 
 architecture a2 of g34_stopwatch is
