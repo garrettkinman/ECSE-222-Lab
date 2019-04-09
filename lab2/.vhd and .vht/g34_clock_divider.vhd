@@ -20,7 +20,7 @@ begin
 process (enable, reset, clk)
 begin
 	if (reset = '0') then
-		temp <= '1';
+		temp <= '0';
 		s1 <= 499999;													-- starts counting down from 499,999
 	elsif ((enable = '1') and (rising_edge(clk))) then	-- triggers only when enabled and on rising edge of clk
 		if (s1 = 0) then												-- when reaches 0, temp will be 1 and countdown will be reset
