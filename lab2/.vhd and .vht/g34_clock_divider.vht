@@ -29,6 +29,7 @@ USE ieee.std_logic_1164.all;
 
 ENTITY g34_clock_divider_vhd_tst IS
 END g34_clock_divider_vhd_tst;
+
 ARCHITECTURE g34_clock_divider_arch OF g34_clock_divider_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
@@ -38,23 +39,25 @@ SIGNAL enable : STD_LOGIC;
 SIGNAL reset : STD_LOGIC;
 COMPONENT g34_clock_divider
 	PORT (
-	clk : IN STD_LOGIC;
-	en_out : OUT STD_LOGIC;
-	enable : IN STD_LOGIC;
-	reset : IN STD_LOGIC
+		clk : IN STD_LOGIC;
+		en_out : OUT STD_LOGIC;
+		enable : IN STD_LOGIC;
+		reset : IN STD_LOGIC
 	);
 END COMPONENT;
+
 BEGIN
 	i1 : g34_clock_divider
 	PORT MAP (
 -- list connections between master ports and signals
-	clk => clk,
-	en_out => en_out,
-	enable => enable,
-	reset => reset
+		clk => clk,
+		en_out => en_out,
+		enable => enable,
+		reset => reset
 	);
+	
 -- Clock definition.
-entrada_process :process
+clock_process :process
 	begin
 	clk <= '0';
 	wait for 10 ns;
@@ -63,9 +66,10 @@ entrada_process :process
 end process;
 
 -- Processing.
-stimuli: process
+stim_proc: process
 begin
 	reset <= '0'; -- Initial conditions.
+	enable <= '0';
 	wait for 100 ns;
 	reset <= '1'; -- Down to work!
 	enable <= '1';
