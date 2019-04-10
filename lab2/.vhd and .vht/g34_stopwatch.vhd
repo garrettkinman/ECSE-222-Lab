@@ -45,10 +45,8 @@ architecture a2 of g34_stopwatch is
 	signal counter4_out		: std_logic_vector (3 downto 0);
 	signal counter5_out		: std_logic_vector (3 downto 0);
 	
-	-- enable for counter 0 comes from clock divider
 	-- determine enable for counters 1-5
 	-- dependent upon output of previous counter
-	signal counter0_clk		: std_logic;
 	signal counter1_clk		: std_logic;
 	signal counter2_clk		: std_logic;
 	signal counter3_clk		: std_logic;
@@ -61,9 +59,6 @@ architecture a2 of g34_stopwatch is
 	
 	-- carry divided clock from clock divider
 	signal divided_clk		: std_logic;
-	
-	-- enable clock divider
-	signal clock_divider_en	: std_logic;
 
 	-- enable whole stopwatch
 	signal enable		: std_logic;
@@ -71,17 +66,13 @@ architecture a2 of g34_stopwatch is
 	
 begin
 	
-	-- TODO: IF START HIT, STAY ENABLED UNTIL HIT STOP
-	-- TODO: IF STOP HIT, STAY DISABLED UNTIL HIT START
-	-- TODO: BUTTONS OUTPUT 1 WHEN NOT PRESSED, 0 WHEN PRESSED; IMPLEMENT THIS
-	
 	-- clock divider
-	clock_divider				: g34_clock_divider
-									port map (enable, reset, clk, counter0_clk);
+	clock_divider			: g34_clock_divider
+									port map (enable, reset, clk, divided_clk);
 	
 	-- counters
 	counter0					: g34_counter
-									port map (enable, reset, counter0_clk, counter0_out);
+									port map (enable, reset, divided_clk, counter0_out);
 	counter1					: g34_counter
 									port map (enable, reset, counter1_clk, counter1_out);
 	counter2					: g34_counter
@@ -94,7 +85,7 @@ begin
 									port map (enable, reset, counter5_clk, counter5_out);
 	
 	-- 7-segment decoders
-	centiseconds_right		: g34_7_segment_decoder
+	centiseconds_right	: g34_7_segment_decoder
 									port map (counter0_out, hex0);
 	centiseconds_left		: g34_7_segment_decoder
 									port map (counter1_out, hex1);
@@ -109,10 +100,12 @@ begin
 
 -- control clk for counter 1
 -- when c0 goes to 0, give c1_clk pulse
-c1_clk	: process (counter0_out(0))
+c1_clk	: process (counter0_out)
 begin
 	if (counter0_out = "0000") then
-		counter1_clk <= '1', '0' after 20 ns;
+		counter1_clk <= '1';
+	else
+		counter1_clk <= '0';
 	end if;
 end process;
 
@@ -121,7 +114,9 @@ end process;
 c2_clk	: process (counter1_out)
 begin
 	if (counter1_out = "0000") then
-		counter2_clk <= '1', '0' after 20 ns;
+		counter2_clk <= '1';
+	else
+		counter2_clk <= '0';
 	end if;
 end process;
 
@@ -130,7 +125,9 @@ end process;
 c3_clk	: process (counter2_out)
 begin
 	if (counter2_out = "0000") then
-		counter3_clk <= '1', '0' after 20 ns;
+		counter3_clk <= '1';
+	else
+		counter3_clk <= '0';
 	end if;
 end process;
 
@@ -140,7 +137,9 @@ end process;
 c4_clk	: process (counter3_out)
 begin
 	if (counter3_out = "0110") then
-		counter4_clk <= '1', '0' after 20 ns;
+		counter4_clk <= '1';
+	else
+		counter4_clk <= '0';
 	end if;
 end process;
 
@@ -149,27 +148,29 @@ end process;
 c5_clk	: process (counter4_out)
 begin
 	if (counter4_out = "0000") then
-		counter5_clk <= '1', '0' after 20 ns;
+		counter5_clk <= '1';
+	else
+		counter5_clk <= '0';
 	end if;
 end process;
 
 -- reset counter 3 if reset or hits 6
--- TODO: MAYBE CHANGE THIS
 c3_reset	: process (counter3_out, reset)
 begin
 	if ((counter3_out = "0110") or reset='0') then 
 		counter3_reset <= '0';
+	else
+		counter3_reset <= '1';
 	end if;
 end process;
 
 en_stopwatch	: process (start, stop)
 begin
-	enable <= '1';
-	--if (start = '0') then
-	--	enable <= '1';
-	--elsif (stop = '0') then
-	--	enable <= '0';
-	--end if;
+	if (start = '0') then
+		enable <= '1';
+	elsif (stop = '0') then
+		enable <= '0';
+	end if;
 end process;
 
 end a2;

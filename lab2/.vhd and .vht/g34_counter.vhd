@@ -16,9 +16,13 @@ begin
 	begin
 		if(reset = '0') then	-- 'temp' resets to 0000 only if 'reset' is 0
 			temp <= "0000";
-		elsif(rising_edge(clk)) then	-- Only at the positive edge of 'Clk
+		elsif(clk'event and clk = '1') then	-- Only at the positive edge of 'Clk
 			if (enable = '1') then	-- 'temp' counts up only if 'enable' is 1
-				temp <= temp + "0001";	-- Adds 1 to 'temp'. If 'temp' = 1111, it becomes 0000
+				if (temp = "1001") then
+					temp <= "0000";
+				else
+					temp <= temp + "0001";	-- Adds 1 to 'temp'. If 'temp' = 1111, it becomes 0000
+				end if;
 			end if;
 		end if;
 	end process;
