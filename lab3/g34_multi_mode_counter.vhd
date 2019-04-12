@@ -22,4 +22,19 @@ architecture behavior of g34_multi_mode_counter is
 					count			: out	std_logic_vector (3 downto 0));
 	end component;
 	
-	component g34_clock_divider is
+	component g34_counter is
+		port (	enable		: in	std_logic;
+				reset				: in	std_logic;
+				clk				: in	std_logic;
+				count				: out	std_logic_vector (3 downto 0));
+	end component;
+	
+	component g34_7_segment_decoder is
+		port (	code 			: in std_logic_vector (3 downto 0);
+				segments			: out std_logic_vector (6 downto 0));
+	end component;
+	
+	-- signals to remember start, stop, and reset
+	signal en	: std_logic;
+	signal rst	: std_logic;
+	
