@@ -19,106 +19,108 @@ BEGIN
 	BEGIN
 		IF reset = '0' THEN
 			y <= A;
-		ELSIF (clk’event AND clk = '1') THEN
-			CASE y IS
-				WHEN A =>
-					IF direction = '0' THEN
-						y <= O;
-					ELSE
-						y <= B;
-					END IF;
-				WHEN B =>
-					IF direction = '0' THEN
-						y <= A;
-					ELSE
-						y <= C;
-					END IF;
-				WHEN C =>
-					IF direction = '0' THEN
-						y <= B;
-					ELSE
-						y <= D;
-					END IF;
-				WHEN D =>
-					IF direction = '0' THEN
-						y <= C;
-					ELSE
-						y <= E;
-					END IF;
+		ELSIF (clk'event AND clk = '1') THEN
+			if enable = '1' then
+				CASE y IS
+					WHEN A =>
+						IF direction = '0' THEN
+							y <= O;
+						ELSE
+							y <= B;
+						END IF;
+					WHEN B =>
+						IF direction = '0' THEN
+							y <= A;
+						ELSE
+							y <= C;
+						END IF;
+					WHEN C =>
+						IF direction = '0' THEN
+							y <= B;
+						ELSE
+							y <= D;
+						END IF;
+					WHEN D =>
+						IF direction = '0' THEN
+							y <= C;
+						ELSE
+							y <= E;
+						END IF;
 					
-				WHEN E =>
-					IF direction = '0' THEN
-						y <= D;
-					ELSE
-						y <= F;
-					END IF;
+					WHEN E =>
+						IF direction = '0' THEN
+							y <= D;
+						ELSE
+							y <= F;
+						END IF;
 					
-				WHEN F =>
-					IF direction = '0' THEN
-						y <= E;
-					ELSE
-						y <= G;
-					END IF;
+					WHEN F =>
+						IF direction = '0' THEN
+							y <= E;
+						ELSE
+							y <= G;
+						END IF;
 					
-				WHEN G =>
-					IF direction = '0' THEN
-						y <= F;
-					ELSE
-						y <= H;
-					END IF;
+					WHEN G =>
+						IF direction = '0' THEN
+							y <= F;
+						ELSE
+							y <= H;
+						END IF;
 					
-				WHEN H =>
-					IF direction = '0' THEN
-						y <= G;
-					ELSE
-						y <= I;
-					END IF;
+					WHEN H =>
+						IF direction = '0' THEN
+							y <= G;
+						ELSE
+							y <= I;
+						END IF;
 					
-				WHEN I =>
-					IF direction = '0' THEN
-						y <= H;
-					ELSE
-						y <= J;
-					END IF;
+					WHEN I =>
+						IF direction = '0' THEN
+							y <= H;
+						ELSE
+							y <= J;
+						END IF;
 					
-				WHEN J =>
-					IF direction = '0' THEN
-						y <= I;
-					ELSE
-						y <= K;
-					END IF;
+					WHEN J =>
+						IF direction = '0' THEN
+							y <= I;
+						ELSE
+							y <= K;
+						END IF;
 					
-				WHEN K =>
-					IF direction = '0' THEN
-						y <= J;
-					ELSE
-						y <= L;
-					END IF;
-				WHEN L =>
-					IF direction = '0' THEN
-						y <= K;
-					ELSE
-						y <= M;
-					END IF;
-				WHEN M =>
-					IF direction = '0' THEN
-						y <= L;
-					ELSE
-						y <= N;
-					END IF;
-				WHEN N =>
-					IF direction = '0' THEN
-						y <= M;
-					ELSE
-						y <= O;
-					END IF;
-				WHEN O =>
-					IF direction = '0' THEN
-						y <= N;
-					ELSE
-						y <= A;
-					END IF;
-			END CASE;
+					WHEN K =>
+						IF direction = '0' THEN
+							y <= J;
+						ELSE
+							y <= L;
+						END IF;
+					WHEN L =>
+						IF direction = '0' THEN
+							y <= K;
+						ELSE
+							y <= M;
+						END IF;
+					WHEN M =>
+						IF direction = '0' THEN
+							y <= L;
+						ELSE
+							y <= N;
+						END IF;
+					WHEN N =>
+						IF direction = '0' THEN
+							y <= M;
+						ELSE
+							y <= O;
+						END IF;
+					WHEN O =>
+						IF direction = '0' THEN
+							y <= N;
+						ELSE
+							y <= A;
+						END IF;
+				END CASE;
+			end if;
 		END IF;
 	END PROCESS;
 	
