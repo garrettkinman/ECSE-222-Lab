@@ -127,21 +127,21 @@ BEGIN
 	PROCESS ( y )
 	BEGIN
 		case y is
-			when A => count <= "0000";
-			when B => count <= "0001";
-			when C => count <= "0010";
-			when D => count <= "0011";
-			when E => count <= "0100";
-			when F => count <= "0101";
-			when G => count <= "0110";
-			when H => count <= "0111";
-			when I => count <= "1000";
-			when J => count <= "1001";
-			when K => count <= "1010";
-			when L => count <= "1011";
-			when M => count <= "1100";
+			when A => count <= "0001";
+			when B => count <= "0010";
+			when C => count <= "0100";
+			when D => count <= "1000";
+			when E => count <= "0011";
+			when F => count <= "0110";
+			when G => count <= "1100";
+			when H => count <= "1011";
+			when I => count <= "0101";
+			when J => count <= "1010";
+			when K => count <= "0111";
+			when L => count <= "1110";
+			when M => count <= "1111";
 			when N => count <= "1101";
-			when O => count <= "1110";
+			when O => count <= "1001";
 			when others => count <= "0000"; -- for any other cases
 		end case;
 	END PROCESS;
