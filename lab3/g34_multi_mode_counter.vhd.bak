@@ -11,15 +11,3 @@ entity g34_multi_mode_counter is
 				hex0			: out	std_logic_vector (6 downto 0);
 				hex1			: out	std_logic_vector (6 downto 0));
 end g34_multi_mode_counter;
-
-architecture behavior of g34_multi_mode_counter is
-
-	component g34_fsm is
-		port (	enable		: in	std_logic;
-					direction	: in	std_logic;
-					reset			: in	std_logic;
-					clk			: in	std_logic;
-					count			: out	std_logic_vector (3 downto 0));
-	end component;
-	
-	component g34_clock_divider is
