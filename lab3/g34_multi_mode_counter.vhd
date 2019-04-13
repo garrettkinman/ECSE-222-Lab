@@ -78,7 +78,10 @@ end process;
 -- anything 10-15 has 0001 into tens and remaining value put into ones
 set_tens_and_ones	: process (fsm_out)
 begin
-	if (enable = '1') then
+	if reset = '0' then
+		tens <= "0000";
+		ones <= "0000";
+	elsif (enable = '1') then
 		case fsm_out is
 			when "1010" =>
 				tens <= "0001";
@@ -105,15 +108,5 @@ begin
 	end if;
 end process;
 
-
--- process that resets the circuit
-reset_circuit	: process (reset)
-begin
-	if reset = '0' then
-		tens <= "0000";
-		ones <= "0000";
-	end if;
-end process;
-
-end g34_multi_mode_counter;
+end behavior;
 	

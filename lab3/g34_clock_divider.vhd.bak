@@ -12,7 +12,7 @@ end g34_clock_divider;
 
 architecture a1 of g34_clock_divider is
 
-	signal s1 	: integer range 49999999 downto 0;
+	signal s1 	: integer range 499999 downto 0;
 	signal temp	: std_logic;
 	
 begin
