@@ -35,7 +35,7 @@ architecture behavior of g34_multi_mode_counter is
 	end component;
 	
 	-- signal to remember start and stop
-	signal enable				: std_logic;
+	signal enable			: std_logic;
 	
 	-- signal to carry output of state machine
 	signal fsm_out			: std_logic_vector (3 downto 0);
@@ -73,7 +73,35 @@ begin
 end process;
 
 
-
+--
+set_tens_and_ones	: process (fsm_out)
+begin
+	if (enable = '1') then
+		case fsm_out is
+			when "1010" =>
+				tens <= "0001";
+				ones <= "0000";
+			when "1011" =>
+				tens <= "0001";
+				ones <= "0001";
+			when "1100" =>
+				tens <= "0001";
+				ones <= "0010";
+			when "1101" =>
+				tens <= "0001";
+				ones <= "0011";
+			when "1110" =>
+				tens <= "0001";
+				ones <= "0100";
+			when "1111" =>
+				tens <= "0001";
+				ones <= "0101";
+			when others =>
+				tens <= "0000";
+				ones <= fsm_out;
+		end case;
+	end if;
+end process;
 	
 end g34_multi_mode_counter;
 	
