@@ -21,11 +21,11 @@ process (enable, reset, clk)
 begin
 	if (reset = '0') then		
 		temp <= '0';			-- temp is reset to 0 when reset = 0
-		s1 <= 499999;										-- starts counting down from 499,999
+		s1 <= 49999999;										-- starts counting down from 499,999
 	elsif (clk'event and clk = '1') then	-- triggers only when enabled and on rising edge of clk
 		if (enable = '1') then
 			if (s1 = 0) then								-- when reaches 0, temp will be 1 and countdown will be reset
-				s1 <= 499999;
+				s1 <= 49999999;
 				temp <= '1';				-- temp pulse is 20 ns long
 			else
 				s1 <= s1 - 1;		-- s1 is decreased by 1
