@@ -62,7 +62,7 @@ begin
 							port map (enable, direction, reset, divided_clk, fsm_out);
 	
 
-	-- process that will remember button press for start or stop	
+-- process that will remember button press for start or stop	
 enable_multi_mode_counter	: process (enable)
 begin
 	if (start = '0') then
@@ -73,7 +73,9 @@ begin
 end process;
 
 
---
+-- process that places splits fsm_out into tens and ones appropriately
+-- anything 1-9 goes into ones unchanged
+-- anything 10-15 has 0001 into tens and remaining value put into ones
 set_tens_and_ones	: process (fsm_out)
 begin
 	if (enable = '1') then
